@@ -4,7 +4,6 @@ import com.bjpowernode.crm.settings.domain.DicValue;
 import com.bjpowernode.crm.settings.service.DicService;
 import com.bjpowernode.crm.settings.service.impl.DicServiceImpl;
 import com.bjpowernode.crm.utils.ServiceFactory;
-import com.bjpowernode.crm.utils.SqlSessionUtil;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
@@ -16,8 +15,9 @@ import java.util.Set;
 public class SysInitListener implements ServletContextListener {
     //该参数可以取得监听器的对象：event
     //通过该参数可以取得上下问对象
-  /*  @Override
+    @Override
     public void contextInitialized(ServletContextEvent event) {
+        System.out.println("监听器启动了");
         ServletContext application = event.getServletContext();
         DicService ds = (DicService) ServiceFactory.getService(new DicServiceImpl());
         Map<String, List<DicValue>> map = ds.getAll();
@@ -27,5 +27,5 @@ public class SysInitListener implements ServletContextListener {
             application.setAttribute(key,map.get(key));
         }
 
-    }*/
+    }
 }

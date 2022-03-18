@@ -15,7 +15,7 @@ public class DicServiceImpl implements DicService {
     private DicTypeDao dicTypeDao = SqlSessionUtil.getSqlSession().getMapper(DicTypeDao.class);
     private DicValueDao dicValueDao = SqlSessionUtil.getSqlSession().getMapper(DicValueDao.class);
 
-   /* @Override
+    @Override
     public Map<String, List<DicValue>> getAll() {
         Map<String,List<DicValue>> map = new HashMap<String,List<DicValue>>();
         //将字典类型的列表取出
@@ -28,5 +28,5 @@ public class DicServiceImpl implements DicService {
             map.put(code+"List",dvList);
         }
         return map;
-    }*/
+    }
 }
