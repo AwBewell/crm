@@ -2,6 +2,11 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+	/*String fullname = request.getParameter("fullname");
+	String id = request.getParameter("id");
+	String appellation = request.getParameter("appellation");
+	String company = request.getParameter("company");
+	String owner = request.getParameter("owner");*/
 %>
 <!DOCTYPE html>
 <html>
@@ -86,13 +91,20 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 	</div>
 
 	<div id="title" class="page-header" style="position: relative; left: 20px;">
-		<h4>转换线索 <small>李四先生-动力节点</small></h4>
+		<%--el表达式
+				只有xxxScope系列的隐含对象可以省略
+				其他所有的隐含对象都不能省
+		--%>
+
+
+
+		<h4>转换线索 <small>${param.fullname}${param.appellation}-${param.company}</small></h4>
 	</div>
 	<div id="create-customer" style="position: relative; left: 40px; height: 35px;">
-		新建客户：动力节点
+		新建客户：${param.company}
 	</div>
 	<div id="create-contact" style="position: relative; left: 40px; height: 35px;">
-		新建联系人：李四先生
+		新建联系人：${param.fullname}${param.appellation}
 	</div>
 	<div id="create-transaction1" style="position: relative; left: 40px; height: 35px; top: 25px;">
 		<input type="checkbox" id="isCreateTransaction"/>
@@ -138,7 +150,7 @@ String basePath = request.getScheme() + "://" + request.getServerName() + ":" + 
 	
 	<div id="owner" style="position: relative; left: 40px; height: 35px; top: 50px;">
 		记录的所有者：<br>
-		<b>zhangsan</b>
+		<b>${param.owner}</b>
 	</div>
 	<div id="operation" style="position: relative; left: 40px; height: 35px; top: 100px;">
 		<input class="btn btn-primary" type="button" value="转换">
